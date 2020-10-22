@@ -1,0 +1,123 @@
+{
+    "CodeSystem structure" : {
+        "prefix" : "CodeSystem",
+        "body" : [
+            "CodeSystem: $1",
+            "\tId:$2",
+            "\tTitle: \"$3\"",
+            "\tDescription: \"$4\" "
+        ],
+        "description" :[
+            "To define a CodeSystem the keyword CodeSystem is required, and ",
+            "Id, Description, Titel are optional but recomended.\n",
+            "CodeSystem is used to define new codes inside an IG that are not drawn from an external code system.\n",
+            "For more information look at the HL7 FHIR Shorthand language reference."    
+        ]
+    },
+    "Extension structure" : {
+        "prefix" : "Extension",
+        "body" : [
+            "Extension: $1",
+            "\tId:$2",
+            "\tTitle: \"$3\"",
+            "\tDescription: \"$4\"",
+            "\tParent:$5 "
+        ],
+        "description" :[
+            "To define an extension, the keyword Extension is required, ",
+            "Parent is optinal and Id, Description, Title are also optional but recomended.\n",
+            "Extensions can either have a value or a subextension, but not both.\n",
+            "For more information look at the HL7 FHIR Shorthand language reference."     
+        ]
+    },
+    "Instance structure" : {
+        "prefix" : "Instance",
+        "body" : [
+            "Instance: $1",
+            "\tTitle: \"$2\"",
+            "\tDescription: \"$3\"",
+            "\tInstanceOf:$4",
+            "\tUsage: $5 "
+        ],
+        "description" :[
+            "To define an instance the keywords Instance and InstanceOf are required, and ",
+            "Description, Titel are optional but recomended and Usage is optional.\n",
+            "Assignment rules are used to set additional values.\n",
+            "For more information look at the HL7 FHIR Shorthand language reference."
+        ]
+    },
+    "Invariant structure" : {
+        "prefix" : "Invariant",
+        "body" : [
+            "Invariant: $1",
+            "\tDescription: \"$2\"",
+            "\tSeverity: $3",
+            "\tXPath: \"$4\"",
+            "\tExpression: \"$5\" "
+        ],
+        "description" :[
+            "To define an invariant the keywords Invariant, Description and Severity, and ",
+            "XPath and Expression are optional.\n",
+            "Invariant definition cannot have rules and are are incorporated into a profile via obeys rules.\n",
+            "For more information look at the HL7 FHIR Shorthand language reference."
+        ] 
+    },
+    "Mapping structure" : {
+        "prefix" : "Mapping",
+        "body" : [
+            "Mapping: $1",
+            "\tTitle: \"$2\"",
+            "\tDescription: \"$3\"",
+            "\tTarget: \"$4\" ",
+            "\tSource:$5 "
+        ],
+        "description" :[
+            "To define a Mapping the keywords Mapping, Source and Target are required, and ",
+            "Description and Title are optional but recomended.\n",
+            "Mapping are intended to help implementers understand the SD in relation to other standards..\n",
+            "For more information look at the HL7 FHIR Shorthand language reference."
+        ]
+    },
+    "Profile structure": {
+		"prefix": "Profile",
+		"body": [
+            "Profile: $1",
+            "\tId:$2",
+            "\tTitle: \"$3\"",
+            "\tDescription: \"$4\"",
+            "\tParent:$5 "
+		],
+        "description": ["To define a profile, the keyword Profile and Parent are required, and ", 
+        "Id, Title and Description are optional but recomended.\n", 
+        "Rules defining the profile follow immediately after the keyword section.\n",
+        "For more information look at the HL7 FHIR Shorthand language reference."]
+    },
+    "RuleSet structure" : {
+        "prefix" : "RuleSet",
+        "body" : [
+            "RuleSet: $1 "
+        ],
+        "description" :[
+            "To define a CodeSystem the keyword RuleSet is required.\n",
+            "Rule sets provide the ability to define a group rules as an independent entity. ",
+            "Through insert rules, they can be incorporated into a compatible target.\n",
+            "For more information look at the HL7 FHIR Shorthand language reference."
+        ]
+    },
+    "ValueSet structure" : {
+        "prefix" : "ValueSet",
+        "body" : [
+            "ValueSet: $1 ",
+            "\tId:$2",
+            "\tTitle: \"$3\"",
+            "\tDescription: \"$4\" "
+        ],
+        "description" :[
+            "To define a valueSet the keyword ValueSet is required, and ",
+            "Id, Description and Title are optional but recomended.\n",
+            "A value set is a group of coded values representing acceptable values for a FHIR element whose data type is code. ",
+            "The contents of a value set are defined by a set of rules. \n",
+            "For more information look at the HL7 FHIR Shorthand language reference."
+        ]
+    }
+}

@@ -1,0 +1,141 @@
+{
+	"name": "dark-plus-syntax",
+	"type": "dark",
+	"colors": {
+		"list.dropBackground": "#383b3d",
+		"editor.background": "#1e1e1e",
+		"editor.foreground": "#d4d4d4",
+		"editor.selectionHighlightBackground": "#add6ff26",
+		"editor.inactiveSelectionBackground": "#3a3d41",
+		"editorIndentGuide.activeBackground": "#707070",
+		"editorIndentGuide.background": "#404040",
+		"activityBarBadge.background": "#007acc",
+		"sideBarTitle.foreground": "#bbbbbb",
+		"editorGutter.addedBackground": "#608b4e",
+		"editorOverviewRuler.addedForeground": "#608b4e",
+		"editorGutter.modifiedBackground": "#d7ba7d",
+		"editorOverviewRuler.modifiedForeground": "#d7ba7d",
+		"editorGutter.deletedBackground": "#d16969",
+		"editorOverviewRuler.deletedForeground": "#d16969",
+		"editorError.foreground": "#d16969",
+		"editorOverviewRuler.errorForeground": "#d16969",
+		"editorWarning.foreground": "#d7ba7d",
+		"editorOverviewRuler.warningForeground": "#d7ba7d",
+		"editorInfo.foreground": "#9cdcfe",
+		"editorOverviewRuler.infoForeground": "#d4d4d4",
+		"gitDecoration.modifiedResourceForeground": "#608b4e",
+		"gitDecoration.addedResourceForeground": "#608b4e",
+		"gitDecoration.deletedResourceForeground": "#d7ba7d",
+		"gitDecoration.untrackedResourceForeground": "#d7ba7d",
+		"gitDecoration.ignoredResourceForeground": "#808080",
+		"gitDecoration.conflictingResourceForeground": "#d16969",
+		"terminal.selectionBackground": "#add6ff26",
+		"terminalCursor.foreground": "#808080",
+		"terminal.background": "#1e1e1e",
+		"terminal.foreground": "#d4d4d4",
+		"terminal.ansiBlack": "#1e1e1e",
+		"terminal.ansiBrightBlack": "#808080",
+		"terminal.ansiRed": "#d16969",
+		"terminal.ansiBrightRed": "#d16969",
+		"terminal.ansiBlue": "#569cd6",
+		"terminal.ansiBrightBlue": "#9cdcfe",
+		"terminal.ansiGreen": "#608b4e",
+		"terminal.ansiBrightGreen": "#b5cea8",
+		"terminal.ansiCyan": "#4ec9b0",
+		"terminal.ansiBrightCyan": "#4ec9b0",
+		"terminal.ansiYellow": "#d7ba7d",
+		"terminal.ansiBrightYellow": "#ce9178",
+		"terminal.ansiMagenta": "#c586c0",
+		"terminal.ansiBrightMagenta": "#c586c0",
+		"terminal.ansiWhite": "#d4d4d4",
+		"terminal.ansiBrightWhite": "#808080"
+	},
+	"tokenColors": [
+		{
+			"scope": [
+				"metadata.parent.fsh",
+				"metadata.id.fsh",
+				"metadata.title.fsh",
+				"metadata.description.fsh",
+				"metadata.expression.fsh",
+				"metadata.xpath.fsh",
+				"metadata.severity.fsh",
+				"metadata.instanceOf.fsh",
+				"metadata.usage.fsh",
+				"metadata.mixins.fsh",
+				"metadata.source.fsh",
+				"metadata.target.fsh",
+				"rule.fsh"
+			],
+			"settings": {
+				"foreground": "#d98d6f"
+			}
+		},
+		{
+			"scope": [
+				"keyword.other.lineComment.fsh",
+				"keyword.other.comment.fsh"
+			],
+			"settings": {
+				"foreground": "#608b4e"
+			}
+		},
+		{
+			"scope" : "keyword.other.url.fsh",
+			"settings" : {
+				"foreground" : "#8bd5f7"
+			}
+		},
+		{
+			"scope": [
+				"keyword.other.todo.fsh"
+			],
+			"settings": {
+				"foreground" : "#ffdd55"
+			}
+		},
+		{
+			"scope": [
+				"entity.alias.fsh",
+				"entity.profile.fsh",
+				"entity.instance.fsh",
+				"entity.extension.fsh",
+				"entity.instance.fsh",
+				"entity.invariant.fsh",
+				"entity.valueSet.fsh",
+				"entity.codeSystem.fsh",
+				"entity.ruleSet.fsh",
+				"entity.mapping.fsh"
+			],
+			"settings": {
+				"foreground": "#5ea4e6"
+			}
+		},
+		{
+			"scope" : [
+				"fragments.NONWS.fsh",
+				"symbol.equal.fsh",
+				"symbol.star.fsh",
+				"symbol.comma.fsh",
+				"symbol.arrow.fsh",
+				"symbol.colon.fsh",
+				"pattern.string.quoted.double.fsh",
+				"pattern.mulilineString.fsh",
+				"pattern.number.fsh",
+				"pattern.code.fsh",
+				"pattern.conceptString.fsh",
+				"pattern.card.fsh",
+				"pattern.orReference.fsh",
+				"pattern.pipeReference.fsh",
+				"pattern.caretSequence.fsh",
+				"pattern.regex.fsh",
+				"pattern.commaDelimitedCodes.fsh",
+				"pattern.commaDelimitedSequnece.fsh",
+				"pattern.sequence.fsh"
+			],
+			"settings" : {
+				"foreground" : "#dbdbdb"
+			}
+		}
+	]
+}
