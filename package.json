@@ -1,0 +1,89 @@
+{
+	"name": "fsh-editor",
+	"displayName": "fsh_editor",
+	"description": "An interactiv editor for designing and writing FHIR-Shorthand specifications",
+	"version": "0.0.4",
+	"repository": {
+		"type": "git",
+		"url": "https://aist.fh-hagenberg.at/git/Development/oppa"
+	},
+	"bugs": {
+		"url": "https://aist.fh-hagenberg.at/git/Development/oppa/-/issues"
+	},
+	"engines": {
+		"vscode": "^1.47.0"
+	},
+	"categories": [
+		"Programming Languages",
+		"Snippets",
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:fsh-editor.helloWorld",
+		"onLanguage:fsh"
+	],
+	"main": "./src/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "fsh-editor.helloWorld",
+				"title": "Hello World"
+			}
+		],
+		"languages": [
+			{
+				"id": "fsh",
+				"aliases": [
+					"FSH",
+					"fsh"
+				],
+				"extensions": [
+					".fsh"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"snippets": [
+			{
+				"language": "fsh",
+				"path": "./snippets/baseSnippets.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "fsh",
+				"scopeName": "source.fsh",
+				"path": "./syntaxes/fsh.tmLanguage.json"
+			}
+		],
+		"themes": [
+			{
+				"label": "fsh_coloration",
+				"uiTheme": "vs-dark",
+				"path": "./themes/fsh-coloration-dark-theme.json"
+			}
+		]
+	},
+	"scripts": {
+		"lint": "eslint .",
+		"pretest": "npm run lint",
+		"test": "node ./test/runTest.js"
+	},
+	"dependencies": {
+		"moo": "^0.5.1",
+		"nearley": "^2.19.5",
+		"vscode-languageclient": "^6.1.3"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^7.0.2",
+		"@types/node": "^13.11.0",
+		"@types/vscode": "^1.48.0",
+		"eslint": "^6.8.0",
+		"glob": "^7.1.6",
+		"gulp": "^3.9.1",
+		"gulp-vinyl-zip": "^1.2.2",
+		"mocha": "^7.1.2",
+		"vscode-test": "^1.3.0"
+	}
+}

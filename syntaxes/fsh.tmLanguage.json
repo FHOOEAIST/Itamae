@@ -1,0 +1,1104 @@
+{
+    "name": "FSH",
+    "scopeName": "source.fsh",
+	"patterns": [
+		{ "include": "#entity" }
+	],
+	"repository": {
+        "lineComment" : {
+            "name" : "keyword.other.lineComment.fsh",
+            "begin" : "(^|[^\\w:\\n])\/\/",
+            "end" : "\\n",
+            "patterns" : [
+                { "include" : "#todo"}
+            ]
+        },
+        "comment" : {
+            "name" : "keyword.other.comment.fsh",
+            "begin" : "\/\\*",
+            "end" : "\\*\/",
+            "patterns" : [
+                { "include" : "#todo"}
+            ]
+        },
+        "todo" : {
+            "name" : "keyword.other.todo.fsh",
+            "begin" : "\\s(?i:(todo|fix)(\\:|\\s))",
+            "end" : "\\n" 
+        },
+        "url" : {
+            "name" : "keyword.other.url.fsh",
+            "match" : "\\s?(https?|ftp):\\/\\/(\\-\\.)?([^\\s\\/\\?\\.\\#\\-]+\\.?)+(\\/[^\\s]*)?(\\n|\\s|\\))"
+        },
+        "entity" : {
+            "name": "entity.fsh",
+            "patterns" : [
+                { "include" : "#lineComment"},
+                { "include" : "#comment"},
+                { "include" : "#todo"},
+                { "include" : "#alias"},
+                { "include" : "#profile"},
+                { "include" : "#extension"},
+                { "include" : "#invariant"},
+                { "include" : "#instance"},
+                { "include" : "#valueSet"},
+                { "include" : "#codeSystem"},
+                { "include" : "#ruleSet"},
+                { "include" : "#mapping"}
+            ]
+        },
+        "rule" : {
+            "name" : "rule.fsh",
+            "begin" : "\\*",
+            "end": "\\n",
+            "patterns" : [
+                {"include" : "#lineComment"},
+                {"include" : "#WS"},
+                {"include" : "#SEQUENCE"}
+            ]
+        },
+
+        "alias" : {
+            "name" : "entity.alias.fsh",
+            "begin" : "^[\\s]*Alias",
+            "end" : "\\n",
+            "patterns" : [
+                { "include" : "#lineComment"},
+                { "include" : "#comment"},
+                { "include" : "#todo"},
+                { "include" : "#COLON"},
+                { "include" : "#WS"},
+                { "include" : "#EQUAL"}, 
+                { "include" : "#SEQUENCE"}
+            ]
+        },
+        "profile" : {
+            "name" : "entity.profile.fsh",
+            "begin" : "^[\\s]*Profile",
+            "end" : "^\\s*$",
+            "patterns" : [
+                { "include" : "#lineComment"},
+                { "include" : "#comment"},
+                { "include" : "#todo"},
+                { "include" : "#COLON"},
+                { "include" : "#WS"},
+                { "include" : "#sdMetadata"},
+                { "include" : "#rule"},
+                { "include" : "#SEQUENCE"}
+            ]
+        },  
+        "extension" : {
+            "name" : "entity.extension.fsh",
+            "begin" : "^[\\s]*Extension",
+            "end" : "^\\s*$",
+            "patterns" : [
+                { "include" : "#lineComment"},
+                { "include" : "#comment"},
+                { "include" : "#todo"},
+                { "include" : "#COLON"},
+                { "include" : "#WS"},
+                { "include" : "#sdMetadata"},
+                { "include" : "#rule"},
+                { "include" : "#SEQUENCE"}
+            ]
+        },
+
+        "sdMetadata" : {
+            "name" : "sdMetadata.fsh",
+            "patterns" : [
+                { "include" : "#parent"},
+                { "include" : "#id"},
+                { "include" : "#title"},
+                { "include" : "#description"},
+                { "include" : "#mixins"}
+            ]
+        },
+        "sdRule" : {
+            "name" : "sdRule.fsh",
+            "patterns" : [
+                { "include" : "#cardRule"},
+                { "include" : "#flagRule"},
+                { "include" : "#valueSetRule"},
+                { "include" : "#fixedValueRule"},
+                { "include" : "#containsRule"},
+                { "include" : "#onlyRule"},
+                { "include" : "#obeysRule"},
+                { "include" : "#caretValueRule"},
+                { "include" : "#insertRule"}
+            ]
+        },
+
+        "instance" : {
+            "name" : "entity.instance.fsh",
+            "begin" : "^[\\s]*Instance",
+            "end" : "^\\s*$",
+            "patterns" : [
+                { "include" : "#lineComment"},
+                { "include" : "#comment"},
+                { "include" : "#todo"},
+                { "include" : "#COLON"},
+                { "include" : "#WS"},
+                { "include" : "#instanceMetadata"},
+                { "include" : "#rule"},
+                { "include" : "#SEQUENCE"}
+            ]
+        },
+        "instanceMetadata" : {
+            "name" : "entity.instance.metadata.fsh",
+            "patterns" : [
+                { "include" : "#instanceOf"},
+                { "include" : "#title"},
+                { "include" : "#description"},
+                { "include" : "#usage"},
+                { "include" : "#mixins"}
+            ]
+        },
+        "instanceRule" : {
+            "name" : "entity.instance.rule.fsh",
+            "patterns" :[
+                { "include" : "#fixedValueRule"},
+                { "include" : "#insertRule"}
+            ]
+        },
+
+        "invariant" : {
+            "name" : "entity.invariant.fsh",
+            "begin" : "^[\\s]*Invariant",
+            "end" : "^\\s*$",
+            "patterns" : [
+                { "include" : "#COLON"},
+                { "include" : "#WS"},
+                { "include" : "#invariantMetadata"},
+                { "include" : "#SEQUENCE"}
+            ]
+        },
+        "invariantMetadata" : {
+            "name" : "entity.invariant.metadata.fsh",
+            "patterns" : [
+                { "include" : "#description"},
+                { "include" : "#expression"},
+                { "include" : "#xpath"},
+                { "include" : "#severity"}
+            ]
+        },
+
+        "valueSet" : {
+            "name" : "entity.valueSet.fsh",
+            "begin" : "^[\\s]*ValueSet",
+            "end" : "^\\s*$",
+            "patterns" : [
+                { "include" : "#lineComment"},
+                { "include" : "#comment"},
+                { "include" : "#todo"},
+                { "include" : "#COLON"},
+                { "include" : "#WS"},
+                { "include" : "#vsMetadata"},
+                { "include" : "#rule"},
+                { "include" : "#SEQUENCE"}
+            ]  
+        },
+        "vsMetadata" : {
+            "name" : "entity.valueSet.metadata.fsh",
+            "patterns" : [
+                { "include" : "#id"},
+                { "include" : "#title"},
+                { "include" : "#description"}
+            ]
+        },
+        "vsRule" : {
+            "name" : "entity.valueSet.rule.fsh",
+            "patterns" : [
+                { "include" : "#vsComponent"},
+                { "include" : "#caretValueRule"},
+                { "include" : "#insertRule"}
+            ]
+        },
+
+        "codeSystem" : {
+            "name" : "entity.codeSystem.fsh",
+            "begin" : "^[\\s]*CodeSystem",
+            "end" : "^\\s*$",
+            "patterns" : [
+                { "include" : "#lineComment"},
+                { "include" : "#comment"},
+                { "include" : "#todo"},
+                { "include" : "#COLON"},
+                { "include" : "#WS"},
+                { "include" : "#csMetadata"},
+                { "include" : "#rule"},
+                { "include" : "#SEQUENCE"}
+            ] 
+        },
+        "csMetadata" : {
+            "name" : "entity.codeSystem.metadata.fsh",
+            "patterns" : [
+                { "include" : "#id"},
+                { "include" : "#title"},
+                { "include" : "#description"}
+            ]
+        },
+        "csRule" : {
+            "name" : "entity.codeSystem.rule.fsh",
+            "patterns" : [
+                { "include" : "#concept"},
+                { "include" : "#caretValueRule"},
+                { "include" : "#insertRule"}
+            ]
+        },
+
+        "ruleSet" : {
+            "name" : "entity.ruleSet.fsh",
+            "begin" : "^[\\s]*RuleSet",
+            "end" : "^\\s*$",
+            "patterns" : [
+                { "include" : "#lineComment"},
+                { "include" : "#comment"},
+                { "include" : "#todo"},
+                { "include" : "#WS"},
+                { "include" : "#ruleSetRule"},
+                { "include" : "#SEQUENCE"},
+                { "include" : "#COLON"}
+            ]  
+        },
+        "ruleSetRule" :{
+            "name" : "entity.ruleSet.rule.fsh",
+            "patterns" : [
+                { "include" : "#rule"},
+                { "include" : "#concept"},
+                { "include" : "#vsComponent"}
+            ]
+        },
+
+        "mapping" : {
+            "name" : "entity.mapping.fsh",
+            "begin" : "^[\\s]*Mapping",
+            "end" : "^\\s*$",
+            "patterns" : [
+                { "include" : "#lineComment"},
+                { "include" : "#comment"},
+                { "include" : "#todo"},
+                { "include" : "#WS"},
+                { "include" : "#mappingMetadata"},
+                { "include" : "#rule"},
+                { "include" : "#SEQUENCE"},
+                { "include" : "#COLON"}
+            ]
+        },
+        "mappingMetadata" : {
+            "name" : "entity.mapping.metadata.fsh",
+            "patterns" : [
+                { "include" : "#id"},
+                { "include" : "#source"},
+                { "include" : "#target"},
+                { "include" : "#description"},
+                { "include" : "#title"}
+            ]
+        },
+        "mappingEntityRule" : {
+            "name" : "entity.mapping.entityRule.fsh",
+            "patterns" : [
+                { "include" : "#mappingRule"},
+                { "include" : "#insertRule"}
+            ]
+        },
+
+
+
+        "parent" : {
+            "name" : "metadata.parent.fsh",
+            "begin" : "Parent",
+            "end" : "\\n",
+            "patterns" : [
+                { "include" : "#lineComment"},
+                { "include" : "#comment"},
+                { "include" : "#WS"},
+                { "include" : "#SEQUENCE"},
+                { "include" : "#COLON"}
+            ]
+        },
+        "id" : {
+            "name" : "metadata.id.fsh",
+            "begin" : "Id",
+            "end" : "\\n",
+            "patterns" : [
+                { "include" : "#lineComment"},
+                { "include" : "#comment"},
+                { "include" : "#WS"},
+                { "include" : "#SEQUENCE"},
+                { "include" : "#COLON"}
+            ]
+        },
+        "title" : {
+            "name" : "metadata.title.fsh",
+            "begin" : "Title",
+            "end" : "\\n",
+            "patterns" : [
+                { "include" : "#lineComment"},
+                { "include" : "#comment"},
+                { "include" : "#WS"},
+                { "include" : "#STRING"},
+                { "include" : "#COLON"}
+            ]
+        },
+        "description" : {
+            "name" : "metadata.description.fsh",
+            "begin": "Description",
+            "end" : "\\n",
+            "patterns" : [
+                { "include" : "#lineComment"},
+                { "include" : "#comment"},
+                { "include" : "#WS"},
+                { "include" : "#MULTILINE_STRING"},
+                { "include" : "#STRING"},
+                { "include" : "#COLON"}
+            ]
+        },
+        "expression" : {
+            "name" : "metadata.expression.fsh",
+            "begin" : "Expression",
+            "end" : "\\n",
+            "patterns" : [
+                { "include" : "#lineComment"},
+                { "include" : "#comment"},
+                { "include" : "#WS"},
+                { "include" : "#STRING"},
+                { "include" : "#COLON"}
+            ]
+        },
+        "xpath" : {
+            "name" : "metadata.xpath.fsh",
+            "begin" : "XPath",
+            "end": "\\n",
+            "patterns" : [
+                { "include" : "#lineComment"},
+                { "include" : "#comment"},
+                { "include" : "#WS"},
+                { "include" : "#STRING"},
+                { "include" : "#COLON"}
+            ]
+        },
+        "severity" : {
+            "name" : "metadata.severity.fsh",
+            "begin" : "Severity",
+            "end" : "\\n",
+            "patterns" : [
+                { "include" : "#lineComment"},
+                { "include" : "#comment"},
+                { "include" : "#WS"},
+                { "include" : "#CODE"},
+                { "include" : "#COLON"}
+            ]
+        },
+        "instanceOf" : {
+            "name" : "metadata.instanceOf.fsh",
+            "begin" : "InstanceOf",
+            "end" : "\\n",
+            "patterns" : [
+                { "include" : "#lineComment"},
+                { "include" : "#comment"},
+                { "include" : "#WS"},
+                { "include" : "#SEQUENCE"},
+                { "include" : "#COLON"}
+            ]
+        },
+        "usage" : {
+            "name" : "metadata.usage.fsh",
+            "begin" : "Usage",
+            "end" : "\\n",
+            "patterns" : [
+                { "include" : "#lineComment"},
+                { "include" : "#comment"},
+                { "include" : "#WS"},
+                { "include" : "#CODE"},
+                { "include" : "#COLON"}
+            ]            
+        },
+        "mixins" : {
+            "name" : "metadata.mixins.fsh",
+            "begin" : "Mixins",
+            "end" : "\\n",
+            "patterns" : [
+                { "include" : "#lineComment"},
+                { "include" : "#comment"},
+                { "include" : "#WS"},
+                { "include" : "#KW_AND"},
+                { "include" : "#SEQUENCE"},
+                { "include" : "#COLON"}
+            ]                        
+        },
+        "source" : {
+            "name" : "metadata.source.fsh",
+            "begin" : "Source",
+            "end": "\\n",
+            "patterns" : [
+                { "include" : "#lineComment"},
+                { "include" : "#comment"},
+                { "include" : "#WS"},
+                { "include" : "#SEQUENCE"},
+                { "include" : "#COLON"}
+            ]
+        },
+        "target" : {
+            "name" : "metadata.target.fsh",
+            "begin" : "Target",
+            "end": "\\n",
+            "patterns" : [
+                { "include" : "#lineComment"},
+                { "include" : "#comment"},
+                { "include" : "#WS"},
+                { "include" : "#STRING"},
+                { "include" : "#COLON"}
+            ]
+        },
+
+
+
+        "cardRule" : {
+            "name" : "rule.cardRule.fsh",
+            "begin" : "\\*",
+            "end" : "\\n",
+            "patterns" : [
+                { "include" : "#path"},
+                { "include" : "#CARD"},
+                { "include" : "#flag"}
+            ]
+        },
+        "flagRule" : {
+            "name" :"rule.flagRule.fsh",
+            "begin" : "\\*",
+            "end" : "\\n",
+            "patterns" : [
+                { "include" : "#path"},
+                { "include" : "#KW_AND"},
+                { "include" : "#paths"},
+                { "include" : "#flag"}
+            ]
+        },
+        "valueSetRule" : {
+            "name" : "rule.valueSetRule.fsh",
+            "begin" : "\\*",
+            "end" : "\\n",
+            "patterns" : [
+                { "include" : "#path"},
+                { "include" : "#KW_UNITS"},
+                { "include" : "#KW_FROM"},
+                { "include" : "#SEQUENCE"},
+                { "include" : "#strength"}
+            ]
+        },
+        "fixedValueRule" : {
+            "name" :"rule.ficedValueRule.fsh",
+            "begin" : "\\*",
+            "end" : "\\n",
+            "patterns" : [
+                { "include" : "#path"},
+                { "include" : "#KW_UNITS"},
+                { "include" : "#KW_EQUAL"},
+                { "include" : "#value"},
+                { "include" : "#KW_EXACTLY"}
+            ]
+        },
+        "containsRule" : {
+            "name" : "rule.containsRule.fsh",
+            "begin" : "\\*",
+            "end" : "\\n",
+            "patterns" : [
+                { "include" : "#path"},
+                { "include" : "#KW_CONTAINS"},
+                { "include" : "#item"},
+                { "include" : "#KW_AND"}
+            ]
+        },
+        "onlyRule" : {
+            "name" : "rule.onlyRule.fsh", 
+            "begin" : "\\*",
+            "end" : "\\n",
+            "patterns" : [
+                { "include" : "#path"},
+                { "include" : "#KW_ONLY"},
+                { "include" : "#targetType"},
+                { "include" : "#KW_OR"}
+            ]
+        },
+        "obeysRule" : {
+            "name" : "rule.obeysRule.fsh",
+            "begin" : "\\*",
+            "end" : "\\n",
+            "patterns" : [
+                { "include" : "#path"},
+                { "include" : "#KW_OBEYS"},
+                { "include" : "#SEQUENCE"},
+                { "include" : "#KW_AND"}
+            ]  
+        },
+        "caretValueRule" : {
+            "name" : "rule.caretValueRule.fsh",
+            "begin" : "\\*",
+            "end" : "\\n",
+            "patterns" : [
+                { "include" : "#path"},
+                { "include" : "#caretPath"},
+                { "include" : "#KW_EQUAL"},
+                { "include" : "#EQUAL"},
+                { "include" : "#value"}
+            ]
+        },
+        "mappingRule" : {
+            "name" : "rule.mappingRule.fsh",
+            "begin" : "\\*",
+            "end" : "\\n",
+            "patterns" : [
+                { "include" : "#path"},
+                { "include" : "#ARROW"},
+                { "include" : "#STRING"},
+                { "include" : "#CODE"}
+            ]
+        },
+        "insertRule" : {
+            "name" : "rule.insertRule.fsh",
+            "begin" : "\\*",
+            "end" : "\\n",
+            "patterns" : [
+                { "include" : "#KW_INSERT"},
+                { "include" : "#SEQUENCE"}
+            ]  
+        },
+
+
+
+        "vsComponent" : {
+            "name" : "valueSetComponent.vsComponent.fsh",
+            "being" : "\\*",
+            "end" : "\\n",
+            "patterns" : [
+                { "include" : "#KW_INCLDUE"},
+                { "include" : "#KW_EXCLUDE"},
+                { "include" : "#vsConceptComponent"},
+                { "include" : "#vsFiltertComponent"}
+            ]
+        },
+        "vsConceptComponent" : {
+            "name" : "valueSetComponent.vsConceptComponent.fsh",
+            "patterns" : [
+                { "include" : "#code"},
+                { "include" : "#vsComponentFrom"},
+                { "include" : "#KW_AND"},
+                { "include" : "#COMMA_DELIMITED_CODES"}
+            ]
+        },
+        "vsFilterComponent" : {
+            "name" : "valueSetComponent.vsFilterComponent.fsh",
+            "begin" : "codes",
+            "end" : "\\n",
+            "patterns" : [
+                { "include" : "#vsComponentFrom"},
+                { "include" : "#KW_WHERE"},
+                { "include" : "#vsFiltertList"}
+            ]
+        },
+        "vsComponentFrom" : {
+            "name" : "valueSetComponent.vsComponentFrom.fsh",
+            "begin" : "from",
+            "end" : "\\n",
+            "patterns" : [
+                { "include" : "#vsFromSystem"},
+                { "include" : "#KW_AND"},
+                { "include" : "#vsFromValueset"}
+            ]
+        },
+        "vsFromSystem" : {
+            "name" : "valueSetComponent.vsFromSystem.fsh",
+            "begin" : "system",
+            "end" : "\\n",
+            "patterns" : [
+                { "include" : "#SEQUENCE"}
+            ]
+        },
+        "vsFromValueset" : {
+            "name" : "valueSetComponent.vsFromValueset.fsh",
+            "begin" : "valueset",
+            "end" : "\\n",
+            "patterns" : [
+                { "include" : "#KW_AND"},
+                { "include" : "#COMMA_DELIMITED_SEQUENCES"},
+                { "include" : "#SEQUENCE"}
+            ]
+        },
+        "vsFilterList" : {
+            "name" : "valueSetComponent.vsFilterList.fsh",
+            "patterns" : [
+                { "include" : "#vsFilterDefinision"},
+                { "include" : "#KW_AND"}
+            ]
+        },
+        "vsFilterDefinition" : {
+            "name" : "valueSetComponent.vsFilterDefinition.fsh",
+            "patterns" : [
+                { "include" : "#vsFilterOperator"},
+                { "include" : "#vsFilterValue"},
+                { "include" : "#SEQUENCE"}
+            ]
+        },
+        "vsFilterOperator" : {
+            "name" : "valueSetComponent.vsFilterOperator.fsh",
+            "pattern" : [
+                { "include" : "#KW_EQUAL"},
+                { "include" : "#SEQUENCE"}
+            ]
+        },
+        "vsFilterValue" : {
+            "name" : "valueSetComponent.vsFilterValue.fsh",
+            "patterns" : [
+                { "include" : "#code"},
+                { "include" : "#KW_TRUE"},
+                { "include" : "KW_FALSE"},
+                { "include" : "#REGEX"},
+                { "include" : "#STRING"}
+            ]
+        },
+
+
+
+        "path" : {
+            "name" : "misc.path.fsh",
+            "patterns" : [
+                { "include" : "#KW_SYSTEM"},
+                { "include" : "#SEQUENCE"}
+            ]
+        },
+        "paths" : {
+            "name" : "misc.paths.fsh",
+            "patterns" : [
+                { "incldue" : "#COMMA_DELIMITED_SEQUENCES"}
+            ]
+        },
+        "caretPath" : {
+            "name" : "misc.caretPath.fsh",
+            "patterns" : [
+                { "include" : "#CARET_SEQUENCES"}
+            ]
+        },
+        "flag" : {
+            "name" : "misc.flag.fsh",
+            "patterns" :[
+                { "include" : "#KW_MOD"},
+                { "include" : "#KW_MS"},
+                { "include" : "#KW_SU"},
+                { "include" : "#KW_TU"},
+                { "include" : "#KW_NORMATIVE"},
+                { "include" : "#KW_DRAFT"}
+            ]
+        },
+        "strength" : {
+            "name" : "misc.strength.fsh",
+            "patterns" :[
+                { "include" : "#KW_EXAMPLE"},
+                { "include" : "#KW_PREFFERED"},
+                { "include" : "#KW_EXTENSIBLE"},
+                { "include" : "#KW_REQUIRED"}
+            ]
+        },
+        "value" : {
+            "name" : "misc.vaule.fsh",
+            "patterns" :[
+                { "include" : "#STRING"},
+                { "include" : "#MULTILINE_STRING"},
+                { "include" : "#NUMBER"},
+                { "include" : "#DATETIME"},
+                { "include" : "#TIME"},
+                { "include" : "#reference"},
+                { "include" : "#code"},
+                { "include" : "#quantity"},
+                { "include" : "#ratio"},
+                { "include" : "#bool"},
+                { "include" : "#SEQUENCE"}
+            ]
+        },
+        "item" : {
+            "name" : "misc.item.fsh",
+            "patterns" : [
+                { "inlcude" : "KW_NAMED"},
+                { "inlcude" : "#CARD"},
+                { "inlcude" : "flag"},
+                { "inlcude" : "#SEQUENCE"}
+            ]
+        },
+        "code" : {
+            "name" : "misc.code.fsh",
+            "patterns" : [
+                { "include" : "#CODE"},
+                { "include" : "#STRING"}
+            ]
+        },
+        "concept" : {
+            "name" : "misc.concept.fsh",
+            "begin" : "\\*",
+            "pattern" : [
+                { "include" : "#code"},
+                { "include" : "#STRING"},
+                { "include" : "#MULTILINE_STRING"}
+            ]
+        },
+        "quantity" : {
+            "name" : "misc.quantity.fsh",
+            "begin" : "[+|-]?[0-9]+(\\.[0-9]+)?",
+            "patterns" : [
+                { "include" : "#NUMBER"},
+                { "include" : "#UNIT"}
+            ]
+        },
+        "ratio" : {
+            "name" :"misc.ratio.fsh",
+            "patterns" : [
+                { "inlcude" : "#ratioPart"},
+                { "inlcude" : "#COLON"}
+            ]
+        },
+        "reference" : {
+            "name" : "misc.reference.fsh",
+            "patterns" : [
+                { "include" : "#OR_REFERENCE"},
+                { "include" : "#PIPE_REFERENCE"},
+                { "include" : "#STRING"}
+            ]
+        },
+        "ratioPart" : {
+            "name" : "misc.ratioPart.fsh",
+            "patterns" : [
+                { "include" : "#NUMBER"},
+                { "include" : "#quantity"}
+            ]
+        },
+        "bool" : {
+            "name" : "misc.bool.fsh",
+            "patterns" : [
+                { "include" : "#KW_TRUE"},
+                { "include" : "#KW_FALSE"}
+            ]
+        },
+        "targetType" : {
+            "name" : "misc.targetType.fsh",
+            "patterns" : [
+                { "include" : "#reference"},
+                { "include" : "#SEQUENCE"}
+            ]
+        },
+
+
+        "KW_MOD" : {
+            "name" : "keyword.mod.fsh",
+            "match"  : "?!"
+        },
+        "KW_MS" : {
+            "name" : "keyword.ms.fsh",
+            "match" : "MS"
+        },
+        "KW_SU" : {
+            "name" : "keyword.su.fsh",
+            "matche" : "SU"
+        },
+        "KW_TU" : {
+            "name" : "keyword.tu.fsh",
+            "match" : "TU"
+        },
+        "KW_NORAIVE" : {
+            "name" : "keyword.normative.fsh",
+            "match" : "N"
+        },
+        "KW_DRAFT" : {
+            "name" : "keyword.draft.fsh",
+            "match" : "D"
+        },
+        "KW_FROM" : {
+            "name" : "keyword.from.fsh",
+            "match" : "from"
+        },
+        "KW_EXAMPLE" : {
+            "name" : "keyword.example.fsh",
+            "begin" : "(",
+            "end" : ")",
+            "patterns" : [
+                {"include" : "#WS"},
+                {"name" : "keyword.example.text.fhs",
+                "match" : "example"}
+            ]
+        },
+        "KW_PREFFERED" : {
+            "name" : "keyword.preffered.fsh",
+            "begin" : "(",
+            "end" : ")",
+            "patterns" : [
+                {"include" : "#WS"},
+                {"name" : "keyword.preffered.text.fhs",
+                "match" : "preffered"}
+            ]
+        },
+        "KW_EXTENSIBLE" : {
+            "name" : "keyword.extensible.fsh",
+            "begin" : "(",
+            "end" : ")",
+            "patterns" : [
+                {"include" : "#WS"},
+                {"name" : "keyword.extensible.text.fhs",
+                "match" : "extensible"}
+            ]        
+        },
+        "KW_REQUIRED" : {
+            "name" : "keyword.required.fsh",
+            "begin" : "(",
+            "end" : ")",
+            "patterns" : [
+                {"include" : "#WS"},
+                {"name" : "keyword.required.text.fhs",
+                "match" : "required"}
+            ]
+        },
+        "KW_CONTAINS" : {
+            "name" :"keyword.contains.fsh",
+            "match" : "contains"
+        },
+        "KW_NAMED" :{
+            "name" :"keyword.named.fsh",
+            "match" : "named"
+        },
+        "KW_AND" : {
+            "name" : "keyword.and.fsh",
+            "match" : "and"
+        },
+        "KW_ONLY" : {
+            "name" : "keyword.only.fsh",
+            "match" : "only"
+        },
+        "KW_OR" : {
+            "name" : "keyword.or.fsh",
+            "match" : "or"
+        },
+        "KW_OBEYS" : {
+            "name" : "keyword.obey.fsh",
+            "match" : "obeys"
+        },
+        "KW_TRUE" : {
+            "name" : "keyword.true.fsh",
+            "match" : "true"
+        },
+        "KW_FALSE" : {
+            "name" : "keyword.false.fsh",
+            "match" : "false" 
+        },
+        "KW_INCLUDE" : {
+            "name" :"keyword.include.fsh",
+            "match" : "incldue"
+        },
+        "KW_EXCULDE" : {
+            "name" : "keyword.exclude.fsh",
+            "match" : "exclued"
+        },
+        "KW_WHERE" : {
+            "name" : "keyword.where.fsh",
+            "match" : "where"
+        },
+        "KW_SYSTEM" : {
+            "name" : "keyword.system.fsh",
+            "match" : "system"
+        },
+        "KW_UNTIS" : {
+            "name" : "keyword.units.fsh",
+            "match" : "untis"
+        },
+        "KW_EXACTLY" : {
+            "name" : "keyword.exactly.fsh",
+            "begin" : "(",
+            "end" : ")",
+            "patterns" : [
+                {"include" : "#WS"},
+                {"name" : "keyword.exactly.text.fhs",
+                "match" : "exactly"}
+            ]
+        },
+        "KW_INSERT" : {
+            "name" : "keyword.insert.fsh",
+            "match" : "insert"
+        },
+
+
+
+        "EQUAL" : {
+            "name" : "symbol.equal.fsh",
+            "match" : "="
+        },
+        "STAR" : {
+            "name" : "symbol.star.fsh",
+            "match" : "*"
+        },
+        "COLON" : {
+            "name" : "symbol.colon.fsh",
+            "match" : ":"
+        },
+        "COMMA" : {
+            "name" : "symbol.comma.fsh",
+            "match" : ","
+        },
+        "ARROW" : {
+            "name" : "symbol.arrow.fsh",
+            "match" : "->"
+        },
+
+
+
+        "STRING": {
+			"name": "pattern.string.quoted.double.fsh",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.fsh",
+					"match": "(\\\"|[^\"])"
+                }
+			]
+        },
+        "MULTILINE_STRING" : {
+            "name" : "pattern.mulilineString.fsh",
+            "match" : "\"\"\".*\"\"\""
+        },
+        "NUMBER" : {
+            "name" : "pattern.number.fsh",
+            "match" : "[+|-]?[0-9]+(\\.[0-9]+)?"
+        },
+        "UNIT" : {
+            "name" : "pattern.unit.fsh",
+            "begin" : "'",
+            "end" : "'",
+            "patterns" : [
+                { "name" : "pattern.unit.definition.fsh",
+                 "match" : "[^']*"}
+            ]
+        },
+        "CODE" : {
+            "name" : "pattern.code.fsh",
+            "begin" : "([^\\s]{3})?#",
+            "end" : "\\n",
+            "patterns" :[
+                { "include" : "#CONCEPT_STRING"},
+                { "include" : "#SEQUENCE"}
+            ]
+        },
+        "CONCEPT_STRING" : {
+            "name" : "pattern.conceptString.fsh",
+            "begin" : "\"",
+            "end" : "\"",
+            "patterns" : [
+                {"incldue" : "#NONWS_STRING"},
+                {"incldue" : "#WS"},
+                {   "name" : "pattern.conceptString.description.fsh",
+                    "match" : "(\"|\\)+"}
+            ]
+        } ,
+        "DATETIME" : {
+            "name" : "pattern.datetime.fsh",
+            "begin" : "[0-9][0-9][0-9][0-9](-(0[0-9]|1[0-2])(-([0-2][0-9]|3[0-1])(T)?)?)?",
+            "end" : "\\n",
+            "patterns" : [
+                { "include" : "#TIME"}
+            ]
+        },
+        "TIME" : {
+            "name" : "pattern.time.fsh",
+            "match" : "([0-1][0-9]|2[0-4])(:[0-5][0-9](:[0-5][0-9](.[0-9]+)?)?)?(Z|(\\+|-)([0-1][0-9]|2[0-4]):[0-5][0-9])?"
+        },
+        "CARD" : {
+             "name" : "pattern.card.fsh",
+             "match" : "([0-9]+)?\\.\\.([0-9]\\+|\\*)?"
+        },
+        "OR_REFERENCE" : {
+            "name" :  "pattern.orReference.fsh",
+            "begin" : "Reference",
+            "end" : "\\n",
+            "patterns" : [
+                { "include" : "#WS"},
+                {   "name" : "pattern.orReference.leftParethesis.fsh",
+                    "match" : "("},
+                    { "include" : "#KW_OR"},
+                    {   "name" : "pattern.orReference.rightParethesis.fsh",
+                        "match" : ")"},
+                { "include" : "#SEQUENCE"}
+            ]
+        },
+        "PIPE_REFERENCE" : {
+            "name" : "pattern.pipeReference.fsh",
+            "begin" : "Reference",
+            "end" : "\\n",
+            "patterns" : [
+                { "include" : "#WS"},
+                {   "name" : "pattern.orReference.leftParethesis.fsh",
+                    "match" : "("},
+                {   "name" : "pattern.orReference.pipe.fsh",
+                    "match" : "|"},
+                {   "name" : "pattern.orReference.rightParethesis.fsh",
+                    "match" : ")"},
+                { "include" : "#SEQUENCE"}
+            ]
+        },
+        "CARET_SEQUENCE" : {
+            "name" : "pattern.caretSequence.fsh",
+            "begin" : "^",
+            "end" : "\\n",
+            "patterns" : [
+                {"include"  : "#NONWS"}
+            ]
+        },
+        "REGEX" : {
+            "name" : "pattern.regex.fsh",
+            "begin" : "/",
+            "end" : "/",
+            "patterns" : [
+                {   "name" :"pattern.regex.description.fsh",
+                    "match" : "(\\/|[^\\*\\/\\r\\n])(\\/|[^\\r\\n])*"}
+            ]
+        },
+        "COMMA_DELIMITED_CODES" : {
+            "name" : "pattern.commaDelimitedCodes.fsh",
+            "patterns" : [
+                { "include" : "#CODE"},
+                { "include" : "#WS"},
+                { "include" : "#STRING"},
+                { "include" : "#COMMA"}
+            ]
+        },
+        "COMMA_DELIMITED_SEQUENCES" : {
+            "name" : "pattern.commaDelimitedSequnece.fsh",
+            "patterns" :[
+                { "include" : "#WS"},
+                { "include" : "COMMA"},
+                { "include" : "#SEQUENCE"}
+            ]
+        },
+        "SEQUENCE" : {
+            "name": "pattern.sequence.fsh",
+            "patterns" : [
+                { "include" : "#NONWS" }
+            ]
+        },
+
+
+        "WS" : {
+            "name" : "fragment.WS.fsh",
+            "match" : "\\s",
+            "patterns" : [
+                {"include" : "$self"}
+            ]
+        },
+        "NONWS" : {
+            "name" : "fragments.NONWS.fsh",
+            "match" : "[^\\s]"
+        },
+        "NONWS_STRING" : {
+            "name" : "fragmanets.NONWSSTRING.fsh",
+            "match" : "[^\\s\\\"]"
+        },
+        "LINE_lineComment" : {
+            "name" : "otherTokens.linelineComment.fsh",
+            "begin" : "//",
+            "end"  : "\\n"
+        }
+	}	
+}
