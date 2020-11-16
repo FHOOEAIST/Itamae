@@ -28,11 +28,11 @@ Depending on your platform, it is located in the following folders:
 
 
 ### Activate
-The editor will be automatically starting, if the language fsh is identified
+The editor will start automatically, if the language fsh is identified
 
 ### Features
 #### Codestyling 
-Different colorization for declaration keywords, additional keyword, comments, and todos.
+Different coloring for declaration keywords, additional keyword, comments, and todos.
 
 [Used Keywords](https://build.fhir.org/ig/HL7/fhir-shorthand/reference.html#defining-items)
 
