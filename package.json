@@ -5,10 +5,10 @@
 	"version": "0.0.4",
 	"repository": {
 		"type": "git",
-		"url": "https://aist.fh-hagenberg.at/git/Development/oppa"
+		"url": "https://github.com/FHOOEAIST/Itamae"
 	},
 	"bugs": {
-		"url": "https://aist.fh-hagenberg.at/git/Development/oppa/-/issues"
+		"url": "https://github.com/FHOOEAIST/Itamae/issues"
 	},
 	"engines": {
 		"vscode": "^1.47.0"

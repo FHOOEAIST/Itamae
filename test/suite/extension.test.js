@@ -8,17 +8,34 @@
  */
 
 const assert = require('assert');
-
-// You can import and use all API from the 'vscode' module
-// as well as import your extension to test it
 const vscode = require('vscode');
-// const myExtension = require('../extension');
+
+//import nearley for parser tests
+const nearley = require('nearley');
 
 suite('Extension Test Suite', () => {
 	vscode.window.showInformationMessage('Start all tests.');
 
-	test('Sample test', () => {
-		assert.equal(-1, [1, 2, 3].indexOf(5));
-		assert.equal(-1, [1, 2, 3].indexOf(0));
-	});
+	test('Parse entities test', parseEntitiesTest);
+	test('Parse rules test', parseRulesTest);
 });
+
+function parseEntitiesTest(){
+	const entityGrammar = require('../../src/parser/entities_parser/fsh-entities');
+	const parser = new nearley.Parser(nearley.Grammar.fromCompiled(entityGrammar));
+	
+	//parse entity alias
+	assert.doesNotThrow(() => {
+		parser.feed("Alias: HL7V2 = http://terminology.hl7.org/CodeSystem/v2-0203 \n");
+	});
+}
+
+function parseRulesTest(){
+	const ruleGrammar = require('../../src/parser/rules_parser/fsh-sdRule');
+	const parser = new nearley.Parser(nearley.Grammar.fromCompiled(ruleGrammar));
+
+	//parse cardRule
+	assert.doesNotThrow(() => {
+		parser.feed("* period 0..0 \n");
+	});
+}
