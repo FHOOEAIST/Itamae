@@ -13,7 +13,7 @@ const vscode = require('vscode');
 //as soon as the require is called, the providers are registered
 const completionProvider = require("./providers/completion");
 
-//this definisions are for the language server
+//these definisions are for the language server
 const path = require("path");
 const vscode_languageclient = require("vscode-languageclient");
 let client;
@@ -24,21 +24,6 @@ let client;
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
-	// This line of code will only be executed once when your extension is activated
-    console.log('Congratulations, your extension "fsh-editor" is now active!');
-
-	// The command has been defined in the package.json file
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('fsh-editor.helloWorld', () => {
-        // The code you place here will be executed every time your command is executed
-
-        // Display a message box to the user
-        vscode.window.showInformationMessage('Hello World from fsh_editor!')
-    });
-
-    context.subscriptions.push(disposable);
-
-
 
 	//this follow part is to start and validate the language server
 	// The server is implemented in node
@@ -82,9 +67,3 @@ exports.activate = activate;
 // this method is called when your extension is deactivated
 function deactivate() {
 }
-
-module.exports = {
-	activate,
-	deactivate
-}
-

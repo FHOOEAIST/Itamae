@@ -16,7 +16,7 @@ const onCompletion = (_textDocumentPosition) => {
         {
             label: 'Parent:',
             kind : vscode_languageserver.CompletionItemKind.Keyword,
-            data: 1
+            data: 0
         },{
             label: 'Id:',
             kind : vscode_languageserver.CompletionItemKind.Keyword,
@@ -159,7 +159,7 @@ const onCompletion = (_textDocumentPosition) => {
 
 //this function will add some additional information for the item selectet in the completion list.
 const onCompletionResolve = (item) => {
-    if (item.data === 1) {
+    if (item.data === 0) {
         item.detail = "Parent details";
         item.documentation = "Specifies the base class for a profile or extension.\n\n"+
         "For more information look at the HL7 FHIR Shorthand language reference.";

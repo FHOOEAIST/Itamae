@@ -1,6 +1,6 @@
 {
 	"name": "fsh-editor",
-	"displayName": "fsh_editor",
+	"displayName": "fsh-editor",
 	"description": "An interactiv editor for designing and writing FHIR-Shorthand specifications",
 	"version": "0.0.4",
 	"repository": {
@@ -24,12 +24,6 @@
 	],
 	"main": "./src/extension.js",
 	"contributes": {
-		"commands": [
-			{
-				"command": "fsh-editor.helloWorld",
-				"title": "Hello World"
-			}
-		],
 		"languages": [
 			{
 				"id": "fsh",
