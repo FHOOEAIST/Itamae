@@ -114,7 +114,7 @@ documents.onDidChangeContent(change => {
 });
 
 async function validateTextDocument(textDocument) {
-    //TODO: here will be gonna the syntaxchecking
+    //TODO: syntax checking will be done here
 
     // this is from the example I build after
     /*
