@@ -67,7 +67,7 @@ const completionList = [
         kind: vscode_languageserver.CompletionItemKind.Text,
         data: 13
     },{
-        label: 'preffered',
+        label: 'preferred',
         kind: vscode_languageserver.CompletionItemKind.Text,
         data: 14
     },{
@@ -175,7 +175,7 @@ const onCompletion = (_textDocumentPosition) => {
     return completionList;
 }
 
-//this function will add some additional information for the item selectet in the completion list.
+//this function will add some additional information for the item selected in the completion list.
 const onCompletionResolve = (item) => {
     if (item.data === itemType.PARENT) {
         item.detail = "Parent details";
