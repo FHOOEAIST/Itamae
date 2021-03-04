@@ -1,13 +1,4 @@
-/*
- * Copyright (c) 2020 the original author or authors.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at https://mozilla.org/MPL/2.0/.
- */
-
-// Generated automatically by nearley, version 2.19.5
+// Generated automatically by nearley, version 2.20.1
 // http://github.com/Hardmath123/nearley
 (function () {
 function id(x) { return x[0]; }
@@ -28,7 +19,9 @@ var grammar = {
     {"name": "caretValueRule$ebnf$1", "symbols": [], "postprocess": function(d) {return null;}},
     {"name": "caretValueRule", "symbols": ["_", {"literal":"*"}, "_", "caretValueRule$ebnf$1", "_", "caretPath", "_", (myLexer.has("EQUAL") ? {type: "EQUAL"} : EQUAL), "_", "values", "_", (myLexer.has("NL") ? {type: "NL"} : NL)]},
     {"name": "insertRule", "symbols": ["_", {"literal":"*"}, "_", (myLexer.has("KW_INSERT") ? {type: "KW_INSERT"} : KW_INSERT), "_", "sequence", "_", (myLexer.has("NL") ? {type: "NL"} : NL)]},
-    {"name": "concept", "symbols": ["_", {"literal":"*"}, "_", "code", "_", (myLexer.has("NL") ? {type: "NL"} : NL), "_", (myLexer.has("STRING") ? {type: "STRING"} : STRING), "_", (myLexer.has("NL") ? {type: "NL"} : NL)]},
+    {"name": "concept$ebnf$1", "symbols": [(myLexer.has("STRING") ? {type: "STRING"} : STRING)], "postprocess": id},
+    {"name": "concept$ebnf$1", "symbols": [], "postprocess": function(d) {return null;}},
+    {"name": "concept", "symbols": ["_", {"literal":"*"}, "_", "code", "_", (myLexer.has("NL") ? {type: "NL"} : NL), "_", "concept$ebnf$1", "_", (myLexer.has("NL") ? {type: "NL"} : NL)]},
     {"name": "path", "symbols": [(myLexer.has("KW_SYSTEM") ? {type: "KW_SYSTEM"} : KW_SYSTEM)]},
     {"name": "path", "symbols": ["sequence"]},
     {"name": "caretPath$ebnf$1", "symbols": [(myLexer.has("NONWS") ? {type: "NONWS"} : NONWS)]},

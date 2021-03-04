@@ -31,7 +31,7 @@ insertRule
     -> _ "*" _ %KW_INSERT _ sequence _ %NL
 
 concept
-    -> _ "*" _ code _ %NL _ %STRING _ %NL
+    -> _ "*" _ code _ %NL _ %STRING:? _ %NL
 
 path
     -> %KW_SYSTEM
