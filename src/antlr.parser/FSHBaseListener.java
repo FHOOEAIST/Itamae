@@ -1,5 +1,5 @@
 // Generated from FSH.g4 by ANTLR 4.8
-package src.parser;
+ package src.antlr.parser;
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
