@@ -14,10 +14,6 @@ const vscode = require('vscode');
 const nearley = require('nearley');
 const entityGrammar = require('../../src/parser/entities_parser/fsh-entities');
 //parser has to be created for each test separate, otherwise the error will cause other tests to fail
-const antlr4 = require('antlr4');
-const FSHLexer = require('./../../src/parser/FSHLexer.js');
-const FSHParser = require('./../../src/parser/FSHParser.js');
-const FSHListener = require('./../../src/parser/FSHListener.js');
 
 suite('Entity Parser Test Suite', () => {
 	test('Parse alias test', parseAlias);
@@ -32,17 +28,12 @@ suite('Entity Parser Test Suite', () => {
 });
 
 function parseAlias(){
-	//const parser = new nearley.Parser(nearley.Grammar.fromCompiled(entityGrammar));
+	const parser = new nearley.Parser(nearley.Grammar.fromCompiled(entityGrammar));
 
 	//reference took from https://github.com/HL7Austria/HL7-AT-FHIR-Core-R4/blob/main/input/fsh/Alias.fsh (02 march 2021, Shorthand v. 1.1.0)
 	assert.doesNotThrow(() => {
-		const input = "Alias: HL7V2 = http://terminology.hl7.org/CodeSystem/v2-0203 \n";
-		const chars = new antlr4.InputStream(input);
-   		const lexer = FSHLexer.FSHLexer(chars);
-   		//const tokens  = new antlr4.CommonTokenStream(lexer);
-   		//const parser = new FSHParser.FSHParser(tokens);
-   		//parser.doc();
-		//parser.feed("Alias: HL7AustriaReligionVS = http://hl7.at/fhir/HL7ATCoreProfiles/4.0.1/ValueSet/VS-ELGA-ReligiousAffiliation \n");
+		parser.feed("Alias: HL7V2 = http://terminology.hl7.org/CodeSystem/v2-0203 \n");
+		parser.feed("Alias: HL7AustriaReligionVS = http://hl7.at/fhir/HL7ATCoreProfiles/4.0.1/ValueSet/VS-ELGA-ReligiousAffiliation \n");
 	});
 }
 
