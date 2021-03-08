@@ -1,6 +1,5 @@
 lexer grammar FSHLexer;
 
-@header{ package src.antlr.parser; }
 
 // KEYWORDS
 KW_ALIAS:           'Alias' WS* ':';
