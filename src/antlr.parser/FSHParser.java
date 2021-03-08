@@ -1,5 +1,5 @@
 // Generated from FSH.g4 by ANTLR 4.8
-package src.antlr.parser;
+package antlr.parser;
 
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -9,6 +9,7 @@ import org.antlr.v4.runtime.tree.*;
 import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
+import java.lang.RuntimeException;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class FSHParser extends Parser {

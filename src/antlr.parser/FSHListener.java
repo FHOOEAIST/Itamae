@@ -1,5 +1,5 @@
 // Generated from FSH.g4 by ANTLR 4.8
- package src.antlr.parser;
+ package antlr.parser;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**

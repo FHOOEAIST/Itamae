@@ -1,7 +1,7 @@
 grammar FSH;
 
 options { tokenVocab = FSHLexer; }
-@header{ package src.antlr.parser; }
+@header{ package antlr.parser; }
 
 doc:                entity* EOF;
 entity:             alias | profile | extension | invariant | instance | valueSet | codeSystem | ruleSet | paramRuleSet | mapping;
