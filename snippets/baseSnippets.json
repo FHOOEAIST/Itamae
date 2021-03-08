@@ -82,9 +82,9 @@
 		"prefix": "Profile",
 		"body": [
             "Profile: $1",
-            "\tId:$2",
-            "\tTitle: \"$3\"",
-            "\tDescription: \"$4\"",
+            "Id: ${1/(([A-Z]*)[_]([A-Z]*))|(([A-Z]*[a-z0-9]+)([A-Z]+))|(([A-Z]+)([A-Z0-9])([a-z]))/${2:/downcase}${5:/downcase}${8:/downcase}-${3:/downcase}${6:/downcase}${9:/downcase}$10/g}",
+			"Title: \"${1/[_]|(([a-z0-9])([A-Z]))|(([A-Z])([A-Z0-9])([a-z]))/$2$5 $3$6$7/g}\"",
+			"\tDescription: \"$4\"",
             "\tParent:$5 "
 		],
         "description": ["To define a profile, the keyword Profile and Parent are required, and ", 

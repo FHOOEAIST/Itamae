@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e7aee56c-b33e-46e1-a6b1-0e5f2c3d0b6c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/antlr.parser/FSH.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/antlr.parser/FSH.g4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/antlr.parser/FSHBaseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/antlr.parser/FSHBaseListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/antlr.parser/FSHLexer.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/antlr.parser/FSHLexer.g4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/antlr.parser/FSHLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/antlr.parser/FSHLexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/antlr.parser/FSHListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/antlr.parser/FSHListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/antlr.parser/FSHParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/antlr.parser/FSHParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snippets/baseSnippets.json" beforeDir="false" afterPath="$PROJECT_DIR$/snippets/baseSnippets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/antlr.parser/ParsingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/antlr.parser/ParsingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/antlr.parser/alias.fsh" beforeDir="false" afterPath="$PROJECT_DIR$/src/antlr.parser/alias.fsh" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,23 +19,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ParsingTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ParsingTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/antlr.parser/ParsingTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="37" column="12" lean-forward="true" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
+            <state relative-caret-position="170">
+              <caret line="10" column="18" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#main#0;class#ParsingTest#0" />
+                <element signature="method#parserWithFile#0;class#ParsingTest#0" />
+                <element signature="method#parseWithString#0;class#ParsingTest#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="alias.fsh" pinned="false" current-in-tab="true">
+      <file leaf-file-name="alias.fsh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/antlr.parser/alias.fsh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="17">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -57,8 +58,8 @@
         <option value="$PROJECT_DIR$/src/antlr.parser/FSHLexer.g4" />
         <option value="$PROJECT_DIR$/src/antlr.parser/FSHLexer.java" />
         <option value="$PROJECT_DIR$/src/antlr.parser/FSHListener.java" />
-        <option value="$PROJECT_DIR$/src/antlr.parser/ParsingTest.java" />
         <option value="$PROJECT_DIR$/src/antlr.parser/alias.fsh" />
+        <option value="$PROJECT_DIR$/src/antlr.parser/ParsingTest.java" />
       </list>
     </option>
   </component>
@@ -115,6 +116,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="C:\Users\S1810458002\Itamae\node_modules\eslint" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
@@ -212,12 +216,12 @@
       <updated>1615188893437</updated>
       <workItem from="1615188898107" duration="1786000" />
       <workItem from="1615190724929" duration="1265000" />
-      <workItem from="1615192939514" duration="1036000" />
+      <workItem from="1615192939514" duration="4012000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4087000" />
+    <option name="totallyTimeSpent" value="7063000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-123" width="1936" height="1176" extended-state="6" />
@@ -237,7 +241,7 @@
       <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.49895614" weight="0.24693686" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="0" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.123958334" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.17083333" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
@@ -339,20 +343,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/antlr.parser/ParsingTest.java">
+    <entry file="file://$PROJECT_DIR$/snippets/baseSnippets.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="37" column="12" lean-forward="true" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
+        <state relative-caret-position="304">
+          <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/suite/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-48">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/suite/entityParser.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/antlr.parser/alias.fsh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="17">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/antlr.parser/ParsingTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="18" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#main#0;class#ParsingTest#0" />
+            <element signature="method#parserWithFile#0;class#ParsingTest#0" />
+            <element signature="method#parseWithString#0;class#ParsingTest#0" />
+          </folding>
         </state>
       </provider>
     </entry>

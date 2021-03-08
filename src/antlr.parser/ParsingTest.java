@@ -11,11 +11,26 @@ import antlr.parser.FSHParser.DocContext;
 class ParsingTest{
 
     public static void main(String[] args){
+        parseWithFile(args);
+        parseWithString();
+    }
+
+    private static void parseWithFile(String[] args){
         if(args.length != 1){
             System.err.print("Usage: path name");
         }else{
             String pathName = args[0];
-            FSHParser parser = getParser(pathName);
+            FSHParser parser = null;
+
+            try{
+                CharStream input = CharStreams.fromFileName(pathName);
+                FSHLexer lexer = new FSHLexer(input);
+                CommonTokenStream tokens = new CommonTokenStream(lexer);
+                parser = new FSHParser(tokens);
+
+            }catch (IOException e){
+                e.printStackTrace();
+            }
 
             //parse from the start symbol 'doc'
             try{
@@ -23,25 +38,18 @@ class ParsingTest{
             }catch(RecognitionException e){
                 e.printStackTrace();
             }
-
         }
     }
 
-    //when including this in the language server the filename will be took from the information which file had changed
-    private static FSHParser getParser(String fileName){
-        FSHParser parser = null;
+    private static void parseWithString(){
+        CharStream input = CharStreams.fromString("Alias: HL7V2 = http://hl7.org/fhir/v2/0203");
+        FSHLexer lexer = new FSHLexer(input);
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        FSHParser parser = new FSHParser(tokens);
 
-        try{
-            CharStream input = CharStreams.fromFileName(fileName);
-            FSHLexer lexer = new FSHLexer(input);
-            CommonTokenStream tokens = new CommonTokenStream(lexer);
-            parser = new FSHParser(tokens);
-            
-        }catch (IOException e){
-            e.printStackTrace();
-        }
+        //parse from the start symbol 'doc'
+        DocContext context = parser.doc();
 
-        return parser;
     }
 
 }
