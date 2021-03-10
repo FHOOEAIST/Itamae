@@ -61,10 +61,10 @@
 	"scripts": {
 		"lint": "eslint .",
 		"pretest": "npm run lint",
+		"compile": "babel src -d lib",
 		"test": "node ./test/runTest.js"
 	},
 	"dependencies": {
-		"antlr4": "^4.9.1",
 		"moo": "^0.5.1",
 		"nearley": "^2.19.5",
 		"vscode-languageclient": "^6.1.3"

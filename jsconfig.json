@@ -1,10 +1,8 @@
 {
 	"compilerOptions": {
 		"module": "commonjs",
-		"target": "es2015",
+		"target": "ES6",
 		"checkJs": true,  /* Typecheck .js files. */
-		"lib": [
-			"ES2015"
-		]
-	}
+	},
+	"exclude": ["node_modules"]
 }
