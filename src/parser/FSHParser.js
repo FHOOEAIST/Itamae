@@ -441,7 +441,7 @@ const sharedContextCache = new antlr4.PredictionContextCache();
 
 export default class FSHParser extends antlr4.Parser {
 
-    static grammarFileName = "FSH.g4";
+    //static grammarFileName = "FSH.g4";
     static literalNames = [ null, null, null, null, null, null, null, null, 
                             null, null, null, null, null, null, null, null, 
                             null, null, null, null, null, null, "'?!'", 

@@ -849,7 +849,7 @@ const decisionsToDFA = atn.decisionToState.map( (ds, index) => new antlr4.dfa.DF
 
 export default class FSHLexer extends antlr4.Lexer {
 
-    static grammarFileName = "FSHLexer.g4";
+    //static grammarFileName = "FSHLexer.g4";
     static channelNames = [ "DEFAULT_TOKEN_CHANNEL", "HIDDEN" ];
 	static modeNames = [ "DEFAULT_MODE", "RULESET_OR_INSERT" ];
 	static literalNames = [ null, null, null, null, null, null, null, null, 

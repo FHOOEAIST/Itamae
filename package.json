@@ -1,8 +1,9 @@
 {
 	"name": "fsh-editor",
 	"displayName": "fsh-editor",
-	"description": "An interactiv editor for designing and writing FHIR-Shorthand specifications",
+	"description": "An interactive editor for designing and writing FHIR-Shorthand specifications",
 	"version": "0.0.4",
+	"type": "module",
 	"repository": {
 		"type": "module",
 		"url": "https://github.com/FHOOEAIST/Itamae"
@@ -61,8 +62,7 @@
 	"scripts": {
 		"lint": "eslint .",
 		"pretest": "npm run lint",
-		"compile": "babel src -d lib",
-		"test": "node ./test/runTest.js"
+		"test1": "node --experimental-modules --experimental-vm-modules node_modules/jest/bin/jest.js"
 	},
 	"dependencies": {
 		"moo": "^0.5.1",
@@ -79,6 +79,8 @@
 		"gulp": "^4.0.2",
 		"gulp-vinyl-zip": "^2.4.0",
 		"mocha": "^7.1.2",
-		"vscode-test": "^1.3.0"
+		"vscode-test": "^1.3.0",
+		"jest": "^26.0.1",
+		"antlr4": "4.9.1"
 	}
 }

@@ -15,14 +15,19 @@
 			]
 		},
 		{
-			"name": "Extension Tests",
-			"type": "extensionHost",
+			"name": "Debug Tests",
+			"type": "node",
 			"request": "launch",
-			"runtimeExecutable": "${execPath}",
-			"args": [
-				"--extensionDevelopmentPath=${workspaceFolder}",
-				"--extensionTestsPath=${workspaceFolder}/test/suite/index"
-			]
-		}
+			"runtimeArgs": [
+			  "--inspect-brk",
+			  "--experimental-modules",
+			  "--experimental-vm-modules",
+			  "${workspaceRoot}/node_modules/jest/bin/jest.js",
+			  "--runInBand"
+			],
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"port": 9229
+		  }
 	]
 }
