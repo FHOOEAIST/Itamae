@@ -13,18 +13,16 @@ const vscode = require('vscode');
 //as soon as the require is called, the providers are registered
 const completionProvider = require("./providers/completion");
 
-//these definisions are for the language server
+//these definitions are for the language server
 const path = require("path");
 const vscode_languageclient = require("vscode-languageclient");
 let client;
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
+// this method is called when the extension is activated
 /**
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
-
 	//this follow part is to start and validate the language server
 	// The server is implemented in node
     let serverModule = context.asAbsolutePath(path.join('language_server', 'server.js'));
@@ -60,10 +58,9 @@ function activate(context) {
     vscode.workspace.onDidChangeTextDocument((event) => {
         diagnosticProvider.update(event,collection);
     })
-
 }
 exports.activate = activate;
 
-// this method is called when your extension is deactivated
+// this method is called when the extension is deactivated
 function deactivate() {
 }

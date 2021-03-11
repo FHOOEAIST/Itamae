@@ -28,9 +28,6 @@ vscode.languages.registerCompletionItemProvider('fsh', {
     }
 });
 
-
-
-
 /**
  * different completion providers for specific possibilities and certain restrictions
  */
@@ -592,29 +589,29 @@ vscode.languages.registerCompletionItemProvider( 'fsh',{
 
 
 
-////completion provider for extension rule
-//vscode.languages.registerCompletionItemProvider( 'fsh',{
-//    provideCompletionItems(document, position) {
-//        const completionList = new vscode.CompletionList;
-//
-//        // get all text until the "position" and check if it reads "extension["
-//        const linePrefix = document.lineAt(position).text.substr(0, position.character);
-//        if (!linePrefix.endsWith('extension[')) {
-//            return undefined;
-//        }
-//
-//        addResources(completionList);
-//
-//        let extensions = getNames("Extension:");
-//        extensions.forEach((name) => {
-//            completionList.items.push(new vscode.CompletionItem(name, vscode.CompletionItemKind.Reference));
-//        });
-//
-//        return completionList;
-//    }
-//},
-//"[" // triggered whenever a '[' is being typed
-//);
+//completion provider for extension rule
+vscode.languages.registerCompletionItemProvider( 'fsh',{
+    provideCompletionItems(document, position) {
+        const completionList = new vscode.CompletionList;
+
+        // get all text until the "position" and check if it reads "extension["
+        const linePrefix = document.lineAt(position).text.substr(0, position.character);
+        if (!linePrefix.endsWith('extension[')) {
+            return undefined;
+        }
+
+        addResources(completionList);
+
+        let extensions = getNames("Extension:");
+        extensions.forEach((name) => {
+            completionList.items.push(new vscode.CompletionItem(name, vscode.CompletionItemKind.Reference));
+        });
+
+        return completionList;
+    }
+},
+"[" // triggered whenever a '[' is being typed
+);
 
 
 //completion provider for equals sign

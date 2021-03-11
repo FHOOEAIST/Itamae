@@ -23,7 +23,7 @@ const update = (event, collection) => {
 module.exports = {update}
 
 /**
- * this function is everytime called when a change in the active TextDocument happens
+ * this function is called every time when a change in the active TextDocument happens
  * @param {vscode.TextDocument} textDocument
  * @param {vscode.DiagnosticCollection} collection
  */
@@ -31,7 +31,7 @@ function validateTextDocument(textDocument, collection){
     collection.clear();
     let diagnostics = [];
 
-    // to simplify the parsing stetp, the parsing is seperatet into two parts
+    // to simplify the parsing step, the parsing is seperatet into two parts
     validateEntity(textDocument, diagnostics);
     validateRules(textDocument,diagnostics);
 
