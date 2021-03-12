@@ -1,8 +1,10 @@
 {
 	"compilerOptions": {
-		"module": "commonjs",
-		"target": "ES6",
+		"target": "es6",
 		"checkJs": true,  /* Typecheck .js files. */
 	},
-	"exclude": ["node_modules"]
+	"exclude": [
+		"node_modules", 
+		"**/node_modules/*",
+		".vscode-test"]
 }

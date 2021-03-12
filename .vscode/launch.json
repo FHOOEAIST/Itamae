@@ -14,7 +14,6 @@
 			"request": "launch",
 			"runtimeExecutable": "${execPath}",
 			"args": [
-				"--experimental-module",
 				"--extensionDevelopmentPath=${workspaceFolder}"				
 			]
 		},
