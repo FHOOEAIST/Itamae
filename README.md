@@ -26,6 +26,8 @@ Depending on your platform, it is located in the following folders:
 * macOS ~/.vscode/extensions
 * Linux ~/.vscode/extensions
 
+#### easier way for developers:
+Open this folder in VSCode, run npm install, go to run/debug view (ctrl + shift + D) and start Run Extension.
 
 ### Activate
 The editor will start automatically, if the language fsh is identified
@@ -55,13 +57,25 @@ Structure of the language server is based on [vsCode LSP sample](https://code.vi
 
 Completion provider is based on [vsCode extension samples](https://github.com/microsoft/vscode-extension-samples)
 
-Snippets were used for the autocompletion of the entities (CodeSystem, Extension, Instance, Invariant, Mapping, Profile, 
-RuleSet, ValueSet). The autocompletion of the additional keywords and other smaller words for defining rules are handled 
-by the completion provider.
+Snippets were used for the autocompletion of the entities. The triggers of the snipped are the name of the entities. FSH entities with snippets:
+- Code System 
+- Extension
+- Instance
+- Invariant
+- Mapping
+- Profile
+- Rule Set
+- Parameterized Rule Set
+- Value Set 
+
+To improve the functionality references of generating the Title and Id where took from [vscode-language-fsh](https://github.com/standardhealth/vscode-language-fsh) - [Chris Moesel](https://github.com/cmoesel), march 2021.
+
+
+The autocompletion of the additional keywords and other words for defining rules are handled by the completion provider.
 
 #### Activation
-* Each fsh file has to be clicked once to connected them to the workspace, then the profiles,extensions and other 
-structures will be suggested if you need to reference one
+* snippets will work when an fsh file is open
+* Each fsh file has to be clicked once to connected them to the workspace, then the profiles, extensions and other structures will be suggested if you need to reference one
 
 #### Known "Bugs"
 These bugs will be fixed in the future:

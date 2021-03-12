@@ -3,13 +3,13 @@
         "prefix" : "CodeSystem",
         "body" : [
             "CodeSystem: $1",
-            "\tId:$2",
-            "\tTitle: \"$3\"",
-            "\tDescription: \"$4\" "
+            "\tId: ${1/(([A-Z]*)[_]([A-Z]*))|(([A-Z]*[a-z0-9]+)([A-Z]+))|(([A-Z]+)([A-Z0-9])([a-z]))/${2:/downcase}${5:/downcase}${8:/downcase}-${3:/downcase}${6:/downcase}${9:/downcase}$10/g}",
+			"\tTitle: \"${1/[_]|(([a-z0-9])([A-Z]))|(([A-Z])([A-Z0-9])([a-z]))/$2$5 $3$6$7/g}\"",
+			"\tDescription: \"$4\" "
         ],
         "description" :[
             "To define a CodeSystem the keyword CodeSystem is required, and ",
-            "Id, Description, Titel are optional but recomended.\n",
+            "Id, Description, Title are optional but recommended. \n",
             "CodeSystem is used to define new codes inside an IG that are not drawn from an external code system.\n",
             "For more information look at the HL7 FHIR Shorthand language reference."    
         ]
@@ -18,15 +18,14 @@
         "prefix" : "Extension",
         "body" : [
             "Extension: $1",
-            "\tId:$2",
-            "\tTitle: \"$3\"",
-            "\tDescription: \"$4\"",
+            "\tId: ${1/(([A-Z]*)[_]([A-Z]*))|(([A-Z]*[a-z0-9]+)([A-Z]+))|(([A-Z]+)([A-Z0-9])([a-z]))/${2:/downcase}${5:/downcase}${8:/downcase}-${3:/downcase}${6:/downcase}${9:/downcase}$10/g}",
+			"\tTitle: \"${1/[_]|(([a-z0-9])([A-Z]))|(([A-Z])([A-Z0-9])([a-z]))/$2$5 $3$6$7/g}\"",
+			"\tDescription: \"$4\"",
             "\tParent:$5 "
         ],
         "description" :[
             "To define an extension, the keyword Extension is required, ",
-            "Parent is optinal and Id, Description, Title are also optional but recomended.\n",
-            "Extensions can either have a value or a subextension, but not both.\n",
+            "Parent is optional and Id, Description, Title are also optional but recommended.\n",
             "For more information look at the HL7 FHIR Shorthand language reference."     
         ]
     },
@@ -34,14 +33,14 @@
         "prefix" : "Instance",
         "body" : [
             "Instance: $1",
-            "\tTitle: \"$2\"",
+            "\tTitle: \"${1/[_]|(([a-z0-9])([A-Z]))|(([A-Z])([A-Z0-9])([a-z]))/$2$5 $3$6$7/g}\"",
             "\tDescription: \"$3\"",
             "\tInstanceOf:$4",
             "\tUsage: $5 "
         ],
         "description" :[
             "To define an instance the keywords Instance and InstanceOf are required, and ",
-            "Description, Titel are optional but recomended and Usage is optional.\n",
+            "Description, Title are optional but recommended and Usage is optional.\n",
             "Assignment rules are used to set additional values.\n",
             "For more information look at the HL7 FHIR Shorthand language reference."
         ]
@@ -66,14 +65,14 @@
         "prefix" : "Mapping",
         "body" : [
             "Mapping: $1",
-            "\tTitle: \"$2\"",
+            "\tTitle: \"${1/[_]|(([a-z0-9])([A-Z]))|(([A-Z])([A-Z0-9])([a-z]))/$2$5 $3$6$7/g}\"",
             "\tDescription: \"$3\"",
             "\tTarget: \"$4\" ",
             "\tSource:$5 "
         ],
         "description" :[
             "To define a Mapping the keywords Mapping, Source and Target are required, and ",
-            "Description and Title are optional but recomended.\n",
+            "Description and Title are optional but recommended.\n",
             "Mapping are intended to help implementers understand the SD in relation to other standards..\n",
             "For more information look at the HL7 FHIR Shorthand language reference."
         ]
@@ -82,13 +81,13 @@
 		"prefix": "Profile",
 		"body": [
             "Profile: $1",
-            "Id: ${1/(([A-Z]*)[_]([A-Z]*))|(([A-Z]*[a-z0-9]+)([A-Z]+))|(([A-Z]+)([A-Z0-9])([a-z]))/${2:/downcase}${5:/downcase}${8:/downcase}-${3:/downcase}${6:/downcase}${9:/downcase}$10/g}",
-			"Title: \"${1/[_]|(([a-z0-9])([A-Z]))|(([A-Z])([A-Z0-9])([a-z]))/$2$5 $3$6$7/g}\"",
+            "\tId: ${1/(([A-Z]*)[_]([A-Z]*))|(([A-Z]*[a-z0-9]+)([A-Z]+))|(([A-Z]+)([A-Z0-9])([a-z]))/${2:/downcase}${5:/downcase}${8:/downcase}-${3:/downcase}${6:/downcase}${9:/downcase}$10/g}",
+			"\tTitle: \"${1/[_]|(([a-z0-9])([A-Z]))|(([A-Z])([A-Z0-9])([a-z]))/$2$5 $3$6$7/g}\"",
 			"\tDescription: \"$4\"",
             "\tParent:$5 "
 		],
         "description": ["To define a profile, the keyword Profile and Parent are required, and ", 
-        "Id, Title and Description are optional but recomended.\n", 
+        "Id, Title and Description are optional but recommended.\n", 
         "Rules defining the profile follow immediately after the keyword section.\n",
         "For more information look at the HL7 FHIR Shorthand language reference."]
     },
@@ -98,7 +97,19 @@
             "RuleSet: $1 "
         ],
         "description" :[
-            "To define a CodeSystem the keyword RuleSet is required.\n",
+            "To define a RuleSet the keyword RuleSet is required.\n",
+            "Rule sets provide the ability to define a group rules as an independent entity. ",
+            "Through insert rules, they can be incorporated into a compatible target.\n",
+            "For more information look at the HL7 FHIR Shorthand language reference."
+        ]
+    },
+    "Parameterized RuleSet structure" : {
+        "prefix" : "ParameterizedRuleSet",
+        "body" : [
+            "RuleSet: $1 ($2)"
+        ],
+        "description" :[
+            "To define a RuleSet the keyword RuleSet is required.\n",
             "Rule sets provide the ability to define a group rules as an independent entity. ",
             "Through insert rules, they can be incorporated into a compatible target.\n",
             "For more information look at the HL7 FHIR Shorthand language reference."
@@ -108,13 +119,13 @@
         "prefix" : "ValueSet",
         "body" : [
             "ValueSet: $1 ",
-            "\tId:$2",
-            "\tTitle: \"$3\"",
-            "\tDescription: \"$4\" "
+            "\tId: ${1/(([A-Z]*)[_]([A-Z]*))|(([A-Z]*[a-z0-9]+)([A-Z]+))|(([A-Z]+)([A-Z0-9])([a-z]))/${2:/downcase}${5:/downcase}${8:/downcase}-${3:/downcase}${6:/downcase}${9:/downcase}$10/g}",
+			"\tTitle: \"${1/[_]|(([a-z0-9])([A-Z]))|(([A-Z])([A-Z0-9])([a-z]))/$2$5 $3$6$7/g}\"",
+			"\tDescription: \"$4\" "
         ],
         "description" :[
             "To define a valueSet the keyword ValueSet is required, and ",
-            "Id, Description and Title are optional but recomended.\n",
+            "Id, Description and Title are optional but recommended.\n",
             "A value set is a group of coded values representing acceptable values for a FHIR element whose data type is code. ",
             "The contents of a value set are defined by a set of rules. \n",
             "For more information look at the HL7 FHIR Shorthand language reference."
