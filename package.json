@@ -3,6 +3,7 @@
 	"displayName": "fsh-editor",
 	"description": "An interactive editor for designing and writing FHIR-Shorthand specifications",
 	"version": "0.0.4",
+	"publisher": "aist",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/FHOOEAIST/Itamae"

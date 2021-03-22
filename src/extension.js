@@ -9,58 +9,74 @@
 
 "use strict";
 const vscode = require('vscode');
+const workspace = vscode.workspace;
+const window = vscode.window;
+const StatusBarAlignment = vscode.StatusBarAlignment;
+const commands = vscode.commands;
+const ViewColumn = vscode.ViewColumn;
 
 //as soon as the require is called, the providers are registered
-const completionProvider = require("./providers/completion");
 
 //these definitions are for the language server
 const path = require("path");
 const vscode_languageclient = require("vscode-languageclient");
-let client;
+var LanguageClient = vscode_languageclient.LanguageClient;
+let languageClient;
 
 // this method is called when the extension is activated
 /**
  * @param {vscode.ExtensionContext} context
  */
-function activate(context) {
-	//this follow part is to start and validate the language server
-	// The server is implemented in node
-    let serverModule = context.asAbsolutePath(path.join('language_server', 'server.js'));
-    // The debug options for the server
-    // --inspect=6009: runs the server in Node's Inspector mode so VS Code can attach to the server for debugging
-    let debugOptions = { execArgv: ['--nolazy', '--inspect=6009'] };
-    // If the extension is launched in debug mode then the debug server options are used
-    // Otherwise the run options are used
-    let serverOptions = {
-        run: { module: serverModule, transport: vscode_languageclient.TransportKind.ipc },
-        debug: {
-            module: serverModule,
-            transport: vscode_languageclient.TransportKind.ipc,
-            options: debugOptions
-        }
+async function activate(context) {
+    const fs = require('fs');
+    var camelLanguageServerPath = context.asAbsolutePath(path.join('src','jars', 'languageServer-1.0.0-SNAPSHOT-jar-with-dependencies.jar'));
+    
+    const outputLine = vscode.window.createOutputChannel("Testing");
+    
+    var serverOptions = {
+        command: retrieveJavaExecutable(),
+        args: ['-jar', camelLanguageServerPath]
     };
     // Options to control the language client
-    let clientOptions = {
-        // Register the server for fsh documents
-        documentSelector: [{ scheme: 'file', language: 'fsh' }],
+    var clientOptions = {
+        documentSelector: [
+            //register the server for fsh files
+            {scheme: 'file', language: 'fsh'}],
         synchronize: {
-            // Notify the server about file changes to '.clientrc files contained in the workspace
-            fileEvents: vscode.workspace.createFileSystemWatcher('**/.clientrc')
+            // Notify the server about file changes to .xml files contain in the workspace
+            fileEvents: workspace.createFileSystemWatcher('**/.clientrc')
         }
     };
+    
     // Create the language client and start the client.
-    client = new vscode_languageclient.LanguageClient('languageServer', 'Language Server', serverOptions, clientOptions);
-    // Start the client. This will also launch the server
-    client.start();
+    var languageClient = new LanguageClient(
+        'LanguageServerforFHIRShorthand', 
+        'Language Server for FHIR Shorthand', 
+        serverOptions, 
+        clientOptions
+    );
 
-    var collection = vscode.languages.createDiagnosticCollection('test');
-    const diagnosticProvider = require("./providers/diagnostics");
-    vscode.workspace.onDidChangeTextDocument((event) => {
-        diagnosticProvider.update(event,collection);
-    })
+    let disposable = languageClient.start();
+	// Push the disposable to the context's subscriptions so that the
+	// client can be deactivated on extension deactivation
+	context.subscriptions.push(disposable);
 }
 exports.activate = activate;
 
 // this method is called when the extension is deactivated
 function deactivate() {
+    if (!languageClient) {
+        return undefined;
+    }
+    return languageClient.stop();
+}
+
+function retrieveJavaExecutable() {
+    var javaHomeSetting = workspace.getConfiguration().get('java.home');
+    if (javaHomeSetting) {
+        return javaHomeSetting + '/bin/java';
+    }
+    else {
+        return 'java';
+    }
 }
