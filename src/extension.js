@@ -29,10 +29,10 @@ let languageClient;
  */
 async function activate(context) {
     const fs = require('fs');
-    var camelLanguageServerPath = context.asAbsolutePath(path.join('src','jars', 'languageServer-1.0.0-SNAPSHOT-jar-with-dependencies.jar'));
-    
+    var camelLanguageServerPath = context.asAbsolutePath(path.join('src', 'jars', 'languageServer-1.0.0-SNAPSHOT-jar-with-dependencies.jar'));
+
     const outputLine = vscode.window.createOutputChannel("Testing");
-    
+
     var serverOptions = {
         command: retrieveJavaExecutable(),
         args: ['-jar', camelLanguageServerPath]
@@ -41,25 +41,25 @@ async function activate(context) {
     var clientOptions = {
         documentSelector: [
             //register the server for fsh files
-            {scheme: 'file', language: 'fsh'}],
+            { scheme: 'file', language: 'fsh' }],
         synchronize: {
             // Notify the server about file changes to .xml files contain in the workspace
             fileEvents: workspace.createFileSystemWatcher('**/.clientrc')
         }
     };
-    
+
     // Create the language client and start the client.
     var languageClient = new LanguageClient(
-        'LanguageServerforFHIRShorthand', 
-        'Language Server for FHIR Shorthand', 
-        serverOptions, 
+        'LanguageServerforFHIRShorthand',
+        'Language Server for FHIR Shorthand',
+        serverOptions,
         clientOptions
     );
 
     let disposable = languageClient.start();
-	// Push the disposable to the context's subscriptions so that the
-	// client can be deactivated on extension deactivation
-	context.subscriptions.push(disposable);
+    // Push the disposable to the context's subscriptions so that the
+    // client can be deactivated on extension deactivation
+    context.subscriptions.push(disposable);
 }
 exports.activate = activate;
 

@@ -38,12 +38,6 @@
 				"configuration": "./language-configuration.json"
 			}
 		],
-		"snippets": [
-			{
-				"language": "fsh",
-				"path": "./snippets/baseSnippets.json"
-			}
-		],
 		"grammars": [
 			{
 				"language": "fsh",
@@ -56,6 +50,12 @@
 				"label": "fsh_coloration",
 				"uiTheme": "vs-dark",
 				"path": "./themes/fsh-coloration-dark-theme.json"
+			}
+		],
+		"snippets": [
+			{
+				"language": "fsh",
+				"path": "./snippets/baseSnippets.json"
 			}
 		]
 	},
